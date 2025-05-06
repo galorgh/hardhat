@@ -38,7 +38,7 @@ async function hasChangeset() {
   }
 
   const { stdout } = await exec(
-    `git diff --name-only --diff-filter=A ${process.env.GITHUB_BASE_REF} -- ${changesetDir}`
+    `git diff --name-only --diff-filter=A ${process.env.GITHUB_BASE_REF.trim()} -- ${changesetDir}`
   );
 
   const changesets = stdout.trim().split("\n")
