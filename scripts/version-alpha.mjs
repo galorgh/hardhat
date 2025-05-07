@@ -34,19 +34,37 @@ const packagesDir = "v-next";
  * prepared changelog section.
  */
 async function versionAlpha() {
+  console.log(1);
   const changesets = await readAllNewChangsets();
 
+  console.log(2);
+
   validateChangesets(changesets);
+
+
+  console.log(3);
 
   if (shouldCreateHardhatEthersPackageChangeset(changesets)) {
     await createHardhatEthersPackageChangeset();
   }
 
+
+  console.log(4);
+
   await executeChangesetVersion();
+
+
+  console.log(5);
 
   const hardhatVersion = await readHardhatVersion();
 
+
+  console.log(6);
+
   await updateHardhatChangelog(hardhatVersion, changesets);
+
+
+  console.log(7);
 }
 
 /**
