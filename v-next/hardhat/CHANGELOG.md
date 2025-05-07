@@ -1,17 +1,5 @@
 # hardhat
 
-## 3.0.0-next.7
-
-### Patch Changes
-
-- 5fbea0d: upgrade eslint and typescript-eslint to their latest versions
-- 7e55eb2: Fix incorrect file names
-- 4ce9fe9: Allow undefined params in JSON RPC handler ([#6532](https://github.com/NomicFoundation/hardhat/issues/6532))
-- 726fe76: Port transaction hash bug fix to v3 ([#6429](https://github.com/NomicFoundation/hardhat/pull/6429))
-- ce8493c: Improve the error message produced by hardhat node test reporter for failing regex match assertions
-- bb48c11: Added logic to create the Hardhat project folder if it does not exist during the init command
-- a5db5bb: Test
-
 ## 3.0.0-next.6
 
 ### Patch Changes
