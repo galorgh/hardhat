@@ -53,13 +53,13 @@ jobs:
         if: steps.before.outputs.released == 'false'
         run: pnpm publish --filter "./v-next/**" -r --no-git-checks --tag next --access public --dry-run
 
-      - name: Publish All Packages
-        id: publish
-        if: steps.before.outputs.released == 'false'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
-        run: pnpm publish --filter "./v-next/**" -r --no-git-checks --tag next --access public
+      # - name: Publish All Packages
+      #   id: publish
+      #   if: steps.before.outputs.released == 'false'
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      #     NPM_CONFIG_PROVENANCE: true
+      #   run: pnpm publish --filter "./v-next/**" -r --no-git-checks --tag next --access public
 
       - name: Check if release was published
         id: after
@@ -68,11 +68,13 @@ jobs:
 
       - name: Prepare GitHub release
         id: release
-        if: steps.before.outputs.released == 'false' && steps.after.outputs.released == 'true'
+        if: steps.before.outputs.released == 'false'
+        # && steps.after.outputs.released == 'true'
         run: node scripts/prepare-github-release.mjs
 
       - name: Create GitHub Release
-        if: steps.before.outputs.released == 'false' && steps.after.outputs.released == 'true'
+        if: steps.before.outputs.released == 'false'
+        # && steps.after.outputs.released == 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         uses: galargh/action-gh-release@571276229e7c9e6ea18f99bad24122a4c3ec813f # https://github.com/galargh/action-gh-release/pull/1
