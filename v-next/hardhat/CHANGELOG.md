@@ -1,5 +1,12 @@
 # hardhat
 
+## 3.0.0-next.9
+
+### Patch Changes
+
+- 30b3530: Remove nested before/after hooks from ephemeral fixture project helper to fix it for macOS when native node test runner coverage reporting is enabled
+- 7766b1b: Set file permissions of the file created by the download function explicitly
+
 ## 3.0.0-next.8
 
 ### Patch Changes
