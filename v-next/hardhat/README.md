@@ -1,4 +1,4 @@
-# Hardhat 3 Alpha
+# Hardhat 3 Alpha!
 
 Hardhat 3 is a major overhaul with exciting new features:
 
